@@ -36,6 +36,7 @@ func main() {
 	startTime := time.Now()
 
 	fmt.Printf("Start testing, @time: %s\n", startTime)
+	fmt.Printf("Result will be printed every %s, please wait...\n", measureTime)
 
 	for {
 		// Generate random data
@@ -71,7 +72,8 @@ func main() {
 		elapsed := time.Since(startTime)
 		if elapsed >= measureTime {
 			averageLoops := float64(loopCount) / elapsed.Minutes()
-			fmt.Printf("--- %s -------------\n", time.Now())
+			fmt.Println("--------------------------------------------------")
+			fmt.Printf("Time: %s\n", time.Now())
 			fmt.Printf("Average loops per minute: %.2f\n", averageLoops)
 			fmt.Printf("Total loops: %d, Total time: %s\n", loopCount, elapsed)
 			fmt.Printf("Average write duration: %s\n", writeDuration/time.Duration(loopCount))
